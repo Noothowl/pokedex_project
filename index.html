@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!--Fontawesome-->
+    <link rel="stylesheet" href="vendor/fontawesome-free-5.15.3-web/css/all.min.css">
+    <title>Pokedex</title>
+  </head>
+  
+  <body>       
+    <header class="bg-danger bg-gradient text-warning text-center container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <img src="img/logo.png" alt="">
+                   </div>
+              <div class="col-12 col-md-6 col-lg-9 pt-5">
+                    <h3>Sistema gestor de Pokémon</h3>
+                </div>
+            </div>
+    </header>
+    <main class="row">
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+                <div class="class-header bg-warning text-light text-center">
+                    <span>Registrar pokemon</span>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label"   for="Nombre-txt">Nombre</label>
+                        <input class="form-control" type="text" id="nombre-txt">
+                    </div>
+                    <div class="mb-3">
+                        <label class= "form-label"   for="descripcion-txt">Descripción</label>
+                        <textarea  id="descripcion-txt" ></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-check-label" for="shiny-rb">Shiny</label>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="shiny-rb" id="shiny-si">
+                            <label class="form-check-label" for="shiny-si">Si</label>
+                        </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="shiny-rb" id="shiny-no" class="form-check-input" checked>
+                        <label for="shiny-no" class="form-check-label">No</label>
+                    </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-check-label" for="tipo-select">Tipo</label>
+                        <select class="form-select" id="tipo-select">
+                            <option value="Bicho">Bicho</option>
+                            <option value="Siniestro">Siniestro</option>
+                            <option value="Dragon">Dragon</option>
+                            <option value="Electrico">Electrico</option>
+                            <option value="Hada">Hada</option>
+                            <option value="Lucha">Lucha</option>
+                            <option value="Fuego">Fuego</option>
+                            <option value="Volador">Volador</option>
+                            <option value="Fantasma">Fantasma</option>
+                            <option value="Planta">Planta</option>
+                            <option value="Tierra">Tierra</option>
+                            <option value="Hielo">Hielo</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Veneno">Veneno</option>
+                            <option value="Psiquico">Psiquico</option>
+                            <option value="Roca">Roca</option>
+                            <option value="Acero">Acero</option>
+                            <option value="Agua">Agua</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-footer row">
+                    <div class="col-6">
+                        <button class="btn btn-success" id="registrar-btn" type="button">Registrar</button>
+                    </div>
+                    <div class="col-6 text-end">
+                        <button class="btn btn-info btn-" id="limpiar-btn" type="button">Limpiar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col col col md col lg">
+            <div class="card">
+                <div class="card-header bg-warning bg-gradient text-light text-center">
+                    <span>Pokedex</span>
+                </div>
+
+            <div class="card-body">
+                <table class="table table-hover table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Descripción</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodyTable">
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+
+            </div>
+            </div>
+        </div>
+    </main>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="vendor/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
