@@ -18,6 +18,18 @@ tinymce.init({
 
 //ArrayList
   const pokemones = [];
+  const deletepkm = async function(){
+    let resp = await Swal.fire({
+      title: `Desea mandar enviar a coquimbo el pokemono ${pokemones[this.pantufla].nombre}?`,
+      showCancelButton: true,
+      confirmButtonText: "Obvio"
+    });
+    if(resp.isConfirmed){
+      pokemones.splice(this.pantufla,1);
+      LoadTable();
+      Swal.fire("Pokemonp enviado a coquimbo ");
+    }
+  };
 //Fn Cargar Tabla
   const LoadTable = ()=>{                              //Fn creation
     let tbody = document.querySelector("#bodyTable");  //Table Ref
@@ -32,6 +44,10 @@ tinymce.init({
     tdNro.innerText = (i+1);                           //AsignAtributes
     let tdNombre = document.createElement("td");
     tdNombre.innerText = p.nombre;
+
+    if(p.shiny){                                  //Shiny on color
+      tdNombre.classList.add("text-warning");
+    }
     let tdTipo = document.createElement("td");
     let icono = document.createElement("i");           //TypeIcon
     if(p.tipo == "Bicho"){
@@ -135,6 +151,14 @@ tinymce.init({
     let tdDesc = document.createElement("td");
     tdDesc.innerHTML = p.descripcion;
     let tdAcciones = document.createElement("td");
+    tdAcciones.classList.add('text-center');
+    //AddActions
+    let actionbtn = document.createElement("btn");
+    actionbtn.classList.add("btn", "btn-danger");
+    actionbtn.innerText = 'Pa coquimbo';
+    actionbtn.pantufla = i;
+    actionbtn.addEventListener("click",deletepkm)
+    tdAcciones.appendChild(actionbtn);
 
     //Agregar a tr (td =insert> tr)
     tr.appendChild(tdNro);
@@ -148,9 +172,8 @@ tinymce.init({
 };
 //ArrayList
 
-//abersidaerror
-
-// DescriptionBox
+//DescriptionBox
+//Regist
 document.querySelector("#registrar-btn").addEventListener("click", ()=>{
     let nombre = document.querySelector("#nombre-txt").value;
     //name obtenido
@@ -175,3 +198,12 @@ document.querySelector("#registrar-btn").addEventListener("click", ()=>{
     Swal.fire("Gotcha!", "Pokemon capturado", "success");
   } );
 //DescriptionBox
+
+//Clear btn
+document.querySelector("#limpiar-btn").addEventListener("click",()=>{
+  document.querySelector("#nombre-txt").value ="";
+  tinymce.get("descripcion-txt").setContent("");
+  document.querySelector("#shiny-no").checked = true;
+  document.querySelector("#tipo-select").value = "Planta";
+});
+//Clear btn
